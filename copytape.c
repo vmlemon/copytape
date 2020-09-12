@@ -33,6 +33,9 @@
 #include <sys/ioctl.h>
 #include <sys/mtio.h>
 #include <sys/file.h>
+#include <string.h>
+#include <stdlib.h>
+#include <errno.h>
 
 extern int      errno;
 
@@ -149,7 +152,7 @@ main(argc, argv)
 	    len = input(from);
 	} while (len > 0);
 	if (len == FORMAT_ERROR) {
-	    perror(stderr, "copytape: format error on skip");
+	    fprintf(stderr, "copytape: format error on skip");
 	    exit(-1);
 	};
 	if (len == END_OF_TAPE) {
