@@ -31,7 +31,12 @@
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/ioctl.h>
+
+#ifdef __APPLE__
+//#include "mtio.h"
+#else
 #include <sys/mtio.h>
+#endif
 #include <sys/file.h>
 #include <string.h>
 #include <stdlib.h>
